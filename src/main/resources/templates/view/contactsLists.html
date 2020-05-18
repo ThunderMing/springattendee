@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-12">
+<h2>FileUpload</h2>
+
+<form action="" th:action="@{'/fileupload'}" th:object="${contactsList}" method="post" enctype='multipart/form-data>
+  <div class="form-group">
+    <label for="fileupload">File Upload</label>
+    <input type="file" class="form-control" placeholder="file" id="file" th:field="*{file}">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+<div class="col-md-12">
+<h2>All ContactsLists</h2>
+<table class="table table-borderless">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Trainee ID</th>
+        <th>Gender</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Batch</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Recruiter</th>
+        <th>File Resource</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="contactsList : ${contactsLists}">
+        <td th:text="${contactsList.id}"></td>
+        <td th:text="${contactsList.traineeID}"></td>
+        <td th:text="${contactsList.gender}"></td>
+        <td th:text="${contactsList.firstName}"></td>
+        <td th:text="${contactsList.lastName}"></td>
+        <td th:text="${contactsList.batch}"></td>
+        <td th:text="${contactsList.phone}"></td>
+        <td th:text="${contactsList.email}"></td>
+        <td th:text="${contactsList.recruiter}"></td>
+        <td th:text="${contactsList.fileResource}"></td> 
+      </tr> 
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>
